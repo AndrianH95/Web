@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore — Електроніка преміум класу</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- Логотип з анімацією -->
+      <a href="#" class="logo" aria-label="TechStore — головна">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="8" width="36" height="24" rx="4" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M14 20h12M20 14v12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="5" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="logo-text">Tech<strong>Store</strong></span>
+      </a>
+
+      <!-- Навігація -->
+      <nav class="main-nav" aria-label="Головне меню">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link active">Головна</a></li>
+          <li><a href="#products" class="nav-link">Каталог</a></li>
+          <li><a href="#" class="nav-link">Акції</a></li>
+          <li><a href="#" class="nav-link">Про нас</a></li>
+          <li><a href="#footer" class="nav-link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <!-- Кошик та мобільне меню -->
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Кошик">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="burger-btn" id="burgerBtn" aria-label="Відкрити меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="site-main" id="products">
+    <div class="main-wrapper">
+
+      <!-- ===== SIDEBAR — ФІЛЬТРИ ===== -->
+      <aside class="sidebar" id="sidebar" aria-label="Панель фільтрів">
+        <div class="sidebar-inner">
+
+          <div class="filter-header">
+            <h2 class="filter-title">Фільтри</h2>
+            <button class="filter-clear" id="clearFilters">Скинути</button>
+          </div>
+
+          <!-- Фільтр 1: Категорія -->
+          <section class="filter-group" aria-labelledby="cat-label">
+            <h3 class="filter-group-title" id="cat-label">Категорія</h3>
+            <ul class="category-list" id="categoryList" role="list">
+              <li>
+                <label class="category-item">
+                  <input type="radio" name="category" value="all" checked />
+                  <span>Всі товари</span>
+                </label>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Фільтр 2: Ціна -->
+          <section class="filter-group" aria-labelledby="price-label">
+            <h3 class="filter-group-title" id="price-label">Ціновий діапазон</h3>
+            <div class="price-inputs">
+              <div class="price-field">
+                <label for="priceMin">від, ₴</label>
+                <input type="number" id="priceMin" placeholder="0" min="0" />
+              </div>
+              <span class="price-divider">—</span>
+              <div class="price-field">
+                <label for="priceMax">до, ₴</label>
+                <input type="number" id="priceMax" placeholder="100000" min="0" />
+              </div>
+            </div>
+            <div class="price-range-wrap">
+              <input type="range" id="priceRange" min="0" max="70000" value="70000" class="price-range" aria-label="Максимальна ціна" />
+              <div class="price-range-labels">
+                <span>₴0</span>
+                <span id="rangeValue">₴70 000</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Фільтр 3: Наявність -->
+          <section class="filter-group" aria-labelledby="stock-label">
+            <h3 class="filter-group-title" id="stock-label">Наявність</h3>
+            <label class="toggle-label">
+              <input type="checkbox" id="inStockOnly" />
+              <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              <span>Тільки в наявності</span>
+            </label>
+          </section>
+
+          <!-- Результати -->
+          <div class="filter-results-info">
+            <span id="resultsCount">0</span> товарів знайдено
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- ===== КОНТЕНТ — КАРТКИ ===== -->
+      <section class="products-section" aria-label="Список товарів">
+
+        <!-- Верхня панель -->
+        <div class="products-topbar">
+          <h1 class="products-heading">Каталог товарів</h1>
+          <div class="sort-wrap">
+            <label for="sortSelect" class="sr-only">Сортування</label>
+            <select id="sortSelect" class="sort-select" aria-label="Сортувати за">
+              <option value="default">За замовчуванням</option>
+              <option value="price-asc">Ціна: від низької</option>
+              <option value="price-desc">Ціна: від високої</option>
+              <option value="rating">За рейтингом</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Сітка карток -->
+        <div class="products-grid" id="productsGrid" role="list" aria-live="polite" aria-label="Товари">
+          <!-- Картки генеруються через JS -->
+        </div>
+
+        <!-- Порожній стан -->
+        <div class="empty-state" id="emptyState" hidden aria-live="polite">
+          <div class="empty-icon" aria-hidden="true">🔍</div>
+          <h3>Товари не знайдено</h3>
+          <p>Спробуйте змінити критерії фільтрації</p>
+          <button class="btn-primary" id="emptyReset">Скинути фільтри</button>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <span class="logo-text footer-logo">Tech<strong>Store</strong></span>
+        <p>Преміум електроніка з офіційною гарантією та швидкою доставкою по всій Україні.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="#">Ноутбуки</a></li>
+          <li><a href="#">Смартфони</a></li>
+          <li><a href="#">Планшети</a></li>
+          <li><a href="#">Аксесуари</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Компанія</h4>
+        <ul>
+          <li><a href="#">Про нас</a></li>
+          <li><a href="#">Доставка та оплата</a></li>
+          <li><a href="#">Гарантія та повернення</a></li>
+          <li><a href="#">Блог</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h4>Контакти</h4>
+        <address>
+          <p>📍 вул. Городоцька 244, Львів</p>
+          <p>📞 <a href="tel:+380671234567">+38 (067) 123-45-67</a></p>
+          <p>✉️ <a href="mailto:info@techstore.ua">info@techstore.ua</a></p>
+          <p>⏰ Пн–Сб: 09:00–20:00</p>
+        </address>
+        <div class="social-links" aria-label="Соціальні мережі">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 TechStore. Всі права захищені.</p>
+      <p>Розроблено з ❤️ у Львові</p>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL — ДЕТАЛІ ТОВАРУ ===== -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose" aria-label="Закрити">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-content" id="modalContent">
+        <!-- Заповнюється через JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NOTIFICATION ===== -->
+  <div class="notification" id="notification" role="status" aria-live="polite" hidden>
+    <span id="notificationText"></span>
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
