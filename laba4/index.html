@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графічний редактор (Canvas + SVG)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Панель інструментів -->
+        <aside class="sidebar">
+            <h2>Graphic Editor</h2>
+            
+            <div class="section">
+                <label>Режим:</label>
+                <div class="btn-group">
+                    <button id="btn-raster" class="active">Raster (Canvas)</button>
+                    <button id="btn-vector">Vector (SVG)</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <label>Колір:</label>
+                <input type="color" id="colorPicker" value="#007bff">
+            </div>
+
+            <div class="section">
+                <label>Товщина: <span id="sizeValue">5</span>px</label>
+                <input type="range" id="lineWidth" min="1" max="50" value="5">
+            </div>
+
+            <div class="section" id="raster-tools">
+                <label>Інструменти Растра:</label>
+                <div class="btn-group">
+                    <button id="btn-brush" class="active">Пензель</button>
+                    <button id="btn-eraser">Стерти</button>
+                </div>
+                <button id="btn-clear-canvas" class="danger">Очистити полотно</button>
+                <button id="btn-save" class="success">Зберегти PNG</button>
+            </div>
+
+            <div class="section" id="vector-tools" style="display: none;">
+                <label>Фігури Vector:</label>
+                <div class="btn-group">
+                    <button id="add-rect">+ Прямокутник</button>
+                    <button id="add-circle">+ Коло</button>
+                </div>
+                <p class="hint">Клікніть на фігуру, щоб вибрати, тягніть для переміщення.</p>
+                <button id="btn-delete-shape" class="danger">Видалити вибране</button>
+            </div>
+        </aside>
+
+        <!-- Область малювання -->
+        <main class="drawing-area">
+            <div class="status-bar">
+                Активний режим: <span id="current-mode-text">Raster</span>
+            </div>
+            
+            <div class="canvas-wrapper">
+                <!-- Полотно для растру -->
+                <canvas id="mainCanvas"></canvas>
+                <!-- Полотно для вектору -->
+                <svg id="mainSvg" xmlns="http://www.w3.org/2000/svg" style="display: none;"></svg>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
