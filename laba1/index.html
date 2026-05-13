@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лабораторна робота 1 — HTML, CSS, JavaScript</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">WebLab<span class="logo-accent">#1</span></span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="header-sub">HTML · CSS · JavaScript — Базові концепції</p>
+    </div>
+  </header>
+
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-inner">
+      <div class="nav-group">
+        <span class="nav-label html-label">HTML</span>
+        <a href="#section-1" class="nav-link">01 Текст</a>
+        <a href="#section-2" class="nav-link">02 Списки</a>
+        <a href="#section-3" class="nav-link">03 Посилання</a>
+        <a href="#section-4" class="nav-link">04 Таблиці</a>
+        <a href="#section-5" class="nav-link">05 Форми</a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-label css-label">CSS</span>
+        <a href="#section-6" class="nav-link">06 Box Model</a>
+        <a href="#section-7" class="nav-link">07 Typography</a>
+        <a href="#section-8" class="nav-link">08 Colors</a>
+        <a href="#section-9" class="nav-link">09 Layout</a>
+        <a href="#section-10" class="nav-link">10 Псевдокласи</a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-label js-label">JS</span>
+        <a href="#section-11" class="nav-link">11 DOM</a>
+        <a href="#section-12" class="nav-link">12 Події</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <div class="part-label">
+      <span class="part-badge html-badge">Частина A</span>
+      <span class="part-title">HTML-теги</span>
+    </div>
+
+    <section class="section" id="section-1">
+      <div class="section-header">
+        <span class="section-num html-num">01</span>
+        <h2 class="section-title">Теги тексту</h2>
+      </div>
+      <p class="section-desc">
+        Теги тексту — основа будь-якої HTML-сторінки. Вони дозволяють структурувати вміст,
+        визначати заголовки різних рівнів, виділяти важливі слова та абзаци.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код:</div>
+        <pre><code>&lt;h1&gt;Заголовок першого рівня&lt;/h1&gt;
+&lt;h2&gt;Заголовок другого рівня&lt;/h2&gt;
+&lt;h3&gt;Заголовок третього рівня&lt;/h3&gt;
+&lt;p&gt;Звичайний абзац тексту.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Жирний текст&lt;/strong&gt; і &lt;em&gt;курсив&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Перший рядок.&lt;br&gt;Другий рядок після br.&lt;/p&gt;</code></pre>
+      </div>
+      <div class="demo" id="demo-text">
+        <div class="demo-label">Результат:</div>
+        <h1>Заголовок першого рівня</h1>
+        <h2>Заголовок другого рівня</h2>
+        <h3>Заголовок третього рівня</h3>
+        <p>Звичайний абзац тексту.</p>
+        <p><strong>Жирний текст</strong> і <em>курсив</em>.</p>
+        <p>Перший рядок.<br>Другий рядок після тегу &lt;br&gt;.</p>
+      </div>
+    </section>
+
+    <section class="section" id="section-2">
+      <div class="section-header">
+        <span class="section-num html-num">02</span>
+        <h2 class="section-title">Списки</h2>
+      </div>
+      <p class="section-desc">
+        Списки дозволяють впорядковано подавати перелік елементів.
+        <code>&lt;ul&gt;</code> — маркований список, <code>&lt;ol&gt;</code> — нумерований.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код:</div>
+        <pre><code>&lt;ul&gt;
+  &lt;li&gt;Елемент маркованого списку&lt;/li&gt;
+  &lt;li&gt;Ще один елемент&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Перший крок&lt;/li&gt;
+  &lt;li&gt;Другий крок&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </div>
+      <div class="demo" id="demo-lists">
+        <div class="demo-label">Результат:</div>
+        <div class="demo-cols">
+          <div>
+            <strong>Маркований список (ul):</strong>
+            <ul>
+              <li>HTML — мова розмітки</li>
+              <li>CSS — мова стилів</li>
+              <li>JavaScript — мова програмування</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Нумерований список (ol):</strong>
+            <ol>
+              <li>Встановити редактор</li>
+              <li>Написати HTML</li>
+              <li>Додати CSS</li>
+              <li>Додати JS</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-3">
+      <div class="section-header">
+        <span class="section-num html-num">03</span>
+        <h2 class="section-title">Посилання та зображення</h2>
+      </div>
+      <p class="section-desc">
+        Тег <code>&lt;a&gt;</code> створює гіперпосилання. Атрибут <code>target="_blank"</code>
+        відкриває посилання у новій вкладці. Тег <code>&lt;img&gt;</code> вставляє зображення,
+        а <code>alt</code> описує його для доступності.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код:</div>
+        <pre><code>&lt;a href="https://developer.mozilla.org" target="_blank"&gt;
+  MDN Web Docs
+&lt;/a&gt;
+
+&lt;img src="photo.jpg" alt="Опис зображення" width="300"&gt;</code></pre>
+      </div>
+      <div class="demo" id="demo-links">
+        <div class="demo-label">Результат:</div>
+        <p>Посилання: <a href="https://developer.mozilla.org" target="_blank" class="demo-link">MDN Web Docs →</a></p>
+        <img src="https://picsum.photos/seed/weblab/400/180" alt="Демонстраційне зображення пейзажу" class="demo-img" />
+        <p class="img-caption">Зображення з атрибутом alt="Демонстраційне зображення пейзажу"</p>
+      </div>
+    </section>
+
+    <section class="section" id="section-4">
+      <div class="section-header">
+        <span class="section-num html-num">04</span>
+        <h2 class="section-title">Таблиці</h2>
+      </div>
+      <p class="section-desc">
+        HTML-таблиця (<code>&lt;table&gt;</code>) організовує дані в рядки (<code>&lt;tr&gt;</code>).
+        <code>&lt;th&gt;</code> — заголовок стовпця, <code>&lt;td&gt;</code> — звичайна комірка.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код:</div>
+        <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Технологія&lt;/th&gt;
+    &lt;th&gt;Призначення&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;HTML&lt;/td&gt;
+    &lt;td&gt;Структура&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      </div>
+      <div class="demo" id="demo-table">
+        <div class="demo-label">Результат:</div>
+        <table class="demo-table">
+          <tr>
+            <th>Технологія</th>
+            <th>Призначення</th>
+            <th>Розширення файлу</th>
+          </tr>
+          <tr>
+            <td>HTML</td>
+            <td>Структура сторінки</td>
+            <td>.html</td>
+          </tr>
+          <tr>
+            <td>CSS</td>
+            <td>Стилізація елементів</td>
+            <td>.css</td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td>Інтерактивність</td>
+            <td>.js</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="section-5">
+      <div class="section-header">
+        <span class="section-num html-num">05</span>
+        <h2 class="section-title">Форми</h2>
+      </div>
+      <p class="section-desc">
+        Тег <code>&lt;form&gt;</code> збирає дані від користувача.
+        <code>&lt;label&gt;</code> підписує поле, <code>&lt;input&gt;</code> приймає введення,
+        <code>&lt;button&gt;</code> — кнопка дії.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код:</div>
+        <pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Ім'я:&lt;/label&gt;
+  &lt;input type="text" id="name" placeholder="Введіть ім'я"&gt;
+
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" placeholder="example@mail.com"&gt;
+
+  &lt;button type="submit"&gt;Надіслати&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+      <div class="demo" id="demo-form">
+        <div class="demo-label">Результат:</div>
+        <form class="demo-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="demo-name" class="form-label">Ім'я:</label>
+            <input type="text" id="demo-name" class="form-input" placeholder="Введіть ім'я">
+          </div>
+          <div class="form-group">
+            <label for="demo-email" class="form-label">Email:</label>
+            <input type="email" id="demo-email" class="form-input" placeholder="example@mail.com">
+          </div>
+          <button type="submit" class="form-btn">Надіслати</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="part-label">
+      <span class="part-badge css-badge">Частина B</span>
+      <span class="part-title">CSS-властивості</span>
+    </div>
+
+    <section class="section" id="section-6">
+      <div class="section-header">
+        <span class="section-num css-num">06</span>
+        <h2 class="section-title">Box Model</h2>
+      </div>
+      <p class="section-desc">
+        Кожен HTML-елемент — це прямокутна коробка. Box Model описує її з 4 шарів:
+        <strong>content</strong> → <strong>padding</strong> → <strong>border</strong> → <strong>margin</strong>.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код CSS:</div>
+        <pre><code>.box {
+  width: 200px;
+  padding: 20px;
+  border: 3px solid #e63;
+  margin: 30px;
+}</code></pre>
+      </div>
+      <div class="demo" id="demo-boxmodel">
+        <div class="demo-label">Результат:</div>
+        <div class="box-model-visual">
+          <div class="bm-margin">
+            <span class="bm-label">margin: 24px</span>
+            <div class="bm-border">
+              <span class="bm-label">border: 3px</span>
+              <div class="bm-padding">
+                <span class="bm-label">padding: 20px</span>
+                <div class="bm-content">content</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-7">
+      <div class="section-header">
+        <span class="section-num css-num">07</span>
+        <h2 class="section-title">Typography</h2>
+      </div>
+      <p class="section-desc">
+        CSS-властивості шрифтів визначають читабельність тексту.
+        <code>font-size</code> — розмір, <code>font-weight</code> — жирність,
+        <code>line-height</code> — міжрядковий інтервал.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код CSS:</div>
+        <pre><code>.typo-small  { font-size: 12px; font-weight: 400; line-height: 1.2; }
+.typo-medium { font-size: 18px; font-weight: 500; line-height: 1.5; }
+.typo-large  { font-size: 28px; font-weight: 700; line-height: 1.8; }</code></pre>
+      </div>
+      <div class="demo" id="demo-typo">
+        <div class="demo-label">Результат:</div>
+        <p class="typo-small">font-size: 12px · font-weight: 400 · line-height: 1.2 — дрібний текст підписів</p>
+        <p class="typo-medium">font-size: 18px · font-weight: 500 · line-height: 1.5 — основний текст</p>
+        <p class="typo-large">font-size: 28px · font-weight: 700 · line-height: 1.8 — великий заголовок</p>
+      </div>
+    </section>
+
+    <section class="section" id="section-8">
+      <div class="section-header">
+        <span class="section-num css-num">08</span>
+        <h2 class="section-title">Colors &amp; Background</h2>
+      </div>
+      <p class="section-desc">
+        <code>color</code> — колір тексту, <code>background-color</code> — колір фону,
+        <code>background-image</code> — фонове зображення або CSS-градієнт.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код CSS:</div>
+        <pre><code>.color-box-1 {
+  color: #fff;
+  background-color: #e63946;
+}
+.color-box-2 {
+  color: #fff;
+  background-image: linear-gradient(135deg, #6c63ff, #3ecfcf);
+}</code></pre>
+      </div>
+      <div class="demo" id="demo-colors">
+        <div class="demo-label">Результат:</div>
+        <div class="color-grid">
+          <div class="color-box color-box-1">color: #fff<br>background-color: #e63946</div>
+          <div class="color-box color-box-2">color: #fff<br>linear-gradient(135deg, …)</div>
+          <div class="color-box color-box-3">color: #222<br>background-color: #ffd166</div>
+          <div class="color-box color-box-4">color: #fff<br>linear-gradient(135deg, …)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-9">
+      <div class="section-header">
+        <span class="section-num css-num">09</span>
+        <h2 class="section-title">Layout — Flexbox</h2>
+      </div>
+      <p class="section-desc">
+        <code>display: flex</code> активує Flexbox. <code>gap</code> — відступ між елементами,
+        <code>justify-content</code> — вирівнювання по головній осі,
+        <code>align-items</code> — по поперечній.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код CSS:</div>
+        <pre><code>.flex-container {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+      </div>
+      <div class="demo" id="demo-flex">
+        <div class="demo-label">Результат (space-between):</div>
+        <div class="flex-container">
+          <div class="flex-item">A</div>
+          <div class="flex-item">B</div>
+          <div class="flex-item">C</div>
+          <div class="flex-item">D</div>
+        </div>
+        <div class="demo-label" style="margin-top:1rem;">Результат (center):</div>
+        <div class="flex-container flex-center">
+          <div class="flex-item">A</div>
+          <div class="flex-item">B</div>
+          <div class="flex-item">C</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-10">
+      <div class="section-header">
+        <span class="section-num css-num">10</span>
+        <h2 class="section-title">Псевдокласи та hover-ефект</h2>
+      </div>
+      <p class="section-desc">
+        Псевдокласи стилізують елементи залежно від стану.
+        <code>:hover</code> — при наведенні миші, <code>:focus</code> — при активації клавіатурою або кліком.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код CSS:</div>
+        <pre><code>.hover-btn:hover {
+  background-color: #6c63ff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(108,99,255,0.4);
+}
+
+.focus-input:focus {
+  outline: 2px solid #6c63ff;
+  border-color: #6c63ff;
+}</code></pre>
+      </div>
+      <div class="demo" id="demo-pseudo">
+        <div class="demo-label">Результат (наведіть мишу / клікніть у поле):</div>
+        <div class="pseudo-row">
+          <button class="hover-btn">Наведіть мишу</button>
+          <input type="text" class="focus-input" placeholder="Клікніть сюди (:focus)" />
+        </div>
+      </div>
+    </section>
+
+    <div class="part-label">
+      <span class="part-badge js-badge">Частина C</span>
+      <span class="part-title">JavaScript</span>
+    </div>
+
+    <section class="section" id="section-11">
+      <div class="section-header">
+        <span class="section-num js-num">11</span>
+        <h2 class="section-title">Додавання контенту (DOM)</h2>
+      </div>
+      <p class="section-desc">
+        JavaScript змінює HTML-сторінку через DOM (Document Object Model).
+        <code>document.createElement()</code> створює новий елемент,
+        <code>appendChild()</code> додає його в дерево сторінки.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код JS:</div>
+        <pre><code>document.getElementById("addBtn").addEventListener("click", function() {
+  const p = document.createElement("p");
+  p.textContent = "Новий абзац #" + (++count);
+  p.className = "added-item";
+  document.getElementById("output").appendChild(p);
+});</code></pre>
+      </div>
+      <div class="demo" id="demo-dom">
+        <div class="demo-label">Результат:</div>
+        <button class="js-btn" id="addBtn">＋ Додати текст</button>
+        <button class="js-btn js-btn-clear" id="clearBtn">✕ Очистити</button>
+        <div id="output" class="js-output"></div>
+      </div>
+    </section>
+
+    <section class="section" id="section-12">
+      <div class="section-header">
+        <span class="section-num js-num">12</span>
+        <h2 class="section-title">Події та зміна стилю</h2>
+      </div>
+      <p class="section-desc">
+        Подія (event) — сигнал про дію користувача. <code>addEventListener</code> підписує функцію на подію.
+        JS змінює стилі через <code>element.classList.toggle()</code>.
+      </p>
+      <div class="code-block">
+        <div class="code-label">Код JS:</div>
+        <pre><code>document.getElementById("themeBtn").addEventListener("click", function() {
+  document.body.classList.toggle("dark-theme");
+  this.textContent = document.body.classList.contains("dark-theme")
+    ? "☀️ Світла тема"
+    : "🌙 Темна тема";
+});</code></pre>
+      </div>
+      <div class="demo" id="demo-events">
+        <div class="demo-label">Результат:</div>
+        <div class="event-controls">
+          <button class="js-btn" id="themeBtn">🌙 Темна тема</button>
+          <button class="js-btn" id="toggleExplBtn">👁 Показати пояснення</button>
+        </div>
+        <div id="toggleContent" class="toggle-content hidden">
+          <p>🎉 Це приховане пояснення! Ти показав його за допомогою JavaScript.</p>
+          <p>Метод <code>classList.toggle()</code> додає клас, якщо його немає, і видаляє, якщо він є.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Лабораторна робота №1 · Frontend Web · HTML + CSS + JS</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
